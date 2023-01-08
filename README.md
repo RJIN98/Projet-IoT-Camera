@@ -15,11 +15,12 @@ Le projet est sert à Comptage de personnes, avec un ESP32 Vroom sur platine Tin
 
 
 
-## ESP32 Wroon 32U
+## Microcontroller
+### ESP32
 
-The default MCU board is the [ESP32 Wroom 32U](https://www.espressif.com/sites/default/files/documentation/esp32-wroom-32d_esp32-wroom-32u_datasheet_en.pdf).
+The CPU is fast enough to provide the camera clock (XCLK) — clock signal above 10MHZ. It has enough RAM to capture a full 160x120x2 frame (QQVGA). And it is equipped with Wifi capabilities.
 
-> Remark: The ESP32 Wroom 32D (on board PCB antenna) and The ESP32 Wroom 32U (UFL connector for an mandatory external antenna) can be used.
+
 
 ## SX1280 modules
 
