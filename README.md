@@ -1,8 +1,6 @@
 # MiniProjet_IoT ESP avec camera
 
-Project to develop a ground station board that will receive messages from satellite on the 2.4GHz band. Satellite tracks are [Thingsat@STORK1](https://tinygs.com/satellite/ThingSat) and other cubeseat followed by the TinyGS community. This station is low cost (off the shelves boards and modules) and low tech (required only a solder iron).
-
-This Git contains Hardware and software of a TinyGS 2.4 GHz LoRa ground station https://tinygs.com/.
+Le projet est sert à Comptage de personnes, avec un ESP32 Vroom sur platine TinyGS 2G4 (Mikrobus, I2C, SPI) + cam OV7670.
 
 ![TinyGS 2G4](./images/gateway_tinygs_2g4-d-all_components.jpg)
 
