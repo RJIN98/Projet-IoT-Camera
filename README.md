@@ -134,7 +134,91 @@ IPAddress localip;
       }
       break;
 ```
-      
+Le client Web Socket est un navigateur Web. Par conséquent, notre dispositif d'affichage est multiplateforme. Il peut être visualisé sur un PC et un smartphone prenant en charge le canevas HTML5. Le code suivant montre comment le client Web gère le socket Web.
+```
+    function initWebSocket() {
+    
+        if ("WebSocket" in window) {
+            if (ws != null) {
+                ws.close();
+            } 
+         	
+            ws = new WebSocket('ws://' +  camera_ip + ':81/', ['arduino']);
+	    if (ws == null) {
+                document.getElementById("connecting").innerText = "Failed to connect to camera [ " + camera_ip + " ]";
+                return;		
+	    }
+            ws.binaryType = 'arraybuffer';
+
+
+            // open websocket 
+            ws.onopen = function() {
+                document.getElementById("canvas7670").style.visibility = "visible";
+                document.getElementById("connecting").style.visibility = "hidden";
+		document.getElementById("constatus").innerText = "Connected to " + ws.url;
+		if (gcanvasid != null && gcanvasid != "") {
+		    capture(gcanvasid);
+		}
+            };//ws.onopen
+           
+            // receive message 
+            ws.onmessage = function (evt) { 
+                var arraybuffer = evt.data;
+                if (arraybuffer.byteLength == 1) {
+                    flag  = new Uint8Array(evt.data); // Start Flag
+                    if (flag == 0xAA) {
+                       ln = 0;                   
+                    }
+                    if (flag == 0xFF) {
+                       //alert("Last Block");
+                    }
+
+		    if (flag == 0x11) {
+                       //alert("Camera IP");
+                    }
+
+		} else {
+
+                    if (flag == 0x11) {
+                       //alert("Camera IP " + evt.data);
+		       camera_ip = evt.data;
+		       document.getElementById("wifi-ip").innerText = camera_ip;
+                       flag = 0;			    
+		    } else {
+                       var bytearray = new Uint8Array(evt.data);
+                       display(bytearray, arraybuffer.byteLength, flag);
+		    }
+                }
+
+            }; //ws.onmessage
+            
+            // close websocket
+            ws.onclose = function() { 
+                document.getElementById("canvas7670").style.visibility = "hidden";
+                document.getElementById("connecting").style.visibility = "visible";
+            }; //ws.onclose
+
+            // websocket error handling
+            ws.onerror = function(evt) {
+                document.getElementById("canvas7670").style.visibility = "hidden";
+                document.getElementById("connecting").style.visibility = "visible";
+                document.getElementById("connecting").innerText = "Error " + evt.data;
+		document.getElementById("constatus").innerText = "";
+	    };
+	    
+        } else {
+           // The browser doesn't support WebSocket
+           alert("WebSocket NOT supported by your Browser!");
+        }
+    } 
+
+
+```
+
+
+
+
+
 PCB are made to integrate up to 2 Mikrobus modules including SX1280 technology. Mikrobus board is an add-on board socket standard made by [mikroe](https://www.mikroe.com/mikrobus). This makes the ground station adjustable and modular.
 ![MiKroBus module](https://github.com/thingsat/tinygs_2g4station/blob/main/MiKroBus_module%20-%20Pinout_specification.PNG) 
 
