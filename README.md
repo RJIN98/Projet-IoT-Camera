@@ -64,6 +64,13 @@ void initWifiMulti()
 
 3. Ouvert le navigateur Google Chrome avec adresse 192.168.4.1. 
 
+ QQ-VGA (120x160) est le canevas d'affichage par défaut.
+
+
+4. L'ESP32 agit comme un serveur Web qui sert une page Web contenant un programme javascript pour se connecter à ESP32 via Websocket et capturer des données d'image binaires pour les afficher sur HTML5 Canvas.
+
+
+
 
 PCB are made to integrate up to 2 Mikrobus modules including SX1280 technology. Mikrobus board is an add-on board socket standard made by [mikroe](https://www.mikroe.com/mikrobus). This makes the ground station adjustable and modular.
 ![MiKroBus module](https://github.com/thingsat/tinygs_2g4station/blob/main/MiKroBus_module%20-%20Pinout_specification.PNG) 
