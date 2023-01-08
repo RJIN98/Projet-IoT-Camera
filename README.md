@@ -37,7 +37,7 @@ Le processeur est suffisamment rapide pour fournir l'horloge de la caméra (XCLK
 
 ##  Détails d'implémentation
 
-Nous avons connecté le ESP32 à l'alimentation 5V. ESP32 démarre et se configure lui-même en tant que point d'accès et poste de travail. Il se connecte au meilleur réseau Wifi disponible parmi les options proposées.
+1. Nous avons connecté le ESP32 à l'alimentation 5V. ESP32 démarre et se configure lui-même en tant que point d'accès et poste de travail. Il se connecte au meilleur réseau Wifi disponible parmi les options proposées.
 
 ```
 void initWifiMulti()
@@ -59,6 +59,8 @@ void initWifiMulti()
     Serial.println(WiFi.localIP());
 }
 ```
+2. Connexion le PC/téléphone intelligent au point d'accès Esp32AP
+
 
 PCB are made to integrate up to 2 Mikrobus modules including SX1280 technology. Mikrobus board is an add-on board socket standard made by [mikroe](https://www.mikroe.com/mikrobus). This makes the ground station adjustable and modular.
 ![MiKroBus module](https://github.com/thingsat/tinygs_2g4station/blob/main/MiKroBus_module%20-%20Pinout_specification.PNG) 
