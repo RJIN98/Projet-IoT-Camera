@@ -110,6 +110,31 @@ void serve() {
   }  
 }
 ```
+
+L'adresse IP de la Station Wifi est fournie par l'ESP32 lors de l'ouverture de la prise Web. ESP32 envoie l'adresse IP de la station au client Web.
+
+Ainsi, la caméra peut avoir deux IP. Correction de 192.168.4.1 lorsqu'il crée un point d'accès et une adresse IP de station attribués par le routeur lorsque ESP32 se connecte à un autre réseau WiFi.
+```
+IPAddress localip;
+  
+  switch (type) {
+    case WStype_DISCONNECTED:             // if the websocket is disconnected
+      Serial.printf("[%u] Disconnected!\n", num);
+      break;
+    case WStype_CONNECTED: {              // if a new websocket connection is established
+        IPAddress ip = webSocket.remoteIP(num);
+        Serial.printf("[%u] Connected from %d.%d.%d.%d url: %s\n", num, ip[0], ip[1], ip[2], ip[3], payload);
+//        rainbow = false;                  // Turn rainbow off when a new connection is established
+           gWebSocketConnected = true;
+           webSocket.sendBIN(0, &ip_flag, 1);
+           localip = WiFi.localIP();
+           sprintf(ipaddr, "%d.%d.%d.%d", localip[0], localip[1], localip[2], localip[3]);
+           webSocket.sendTXT(0, (const char *)ipaddr);
+           
+      }
+      break;
+```
+      
 PCB are made to integrate up to 2 Mikrobus modules including SX1280 technology. Mikrobus board is an add-on board socket standard made by [mikroe](https://www.mikroe.com/mikrobus). This makes the ground station adjustable and modular.
 ![MiKroBus module](https://github.com/thingsat/tinygs_2g4station/blob/main/MiKroBus_module%20-%20Pinout_specification.PNG) 
 
