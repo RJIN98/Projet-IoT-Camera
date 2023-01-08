@@ -6,13 +6,13 @@ Le projet est sert à Comptage de personnes, avec un ESP32 Vroom sur platine Tin
 
 ## Objectifs
 
-* Use cheap camera module.
-* Ability to connect to WiFi.
-* Ability to view the video stream from a PC and Smart Phone as well.
-* Display software should be platform independent
-* Low power consumption. Battery operable.
-* Portable.
-* Easy to configure
+
+* Utilisation un module de caméra bon marché.
+* Possibilité de se connecter au WiFi.
+* Possibilité de visualiser le flux vidéo à partir d'un PC et d'un smartphone également.
+* Le logiciel d'affichage doit être indépendant de la plate-forme
+* Faible consommation d'énergie. Fonctionne sur batterie.
+
 
 
 ## ESP32 Wroon 32U
