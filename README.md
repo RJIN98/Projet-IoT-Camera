@@ -69,9 +69,47 @@ void initWifiMulti()
 
 4. L'ESP32 agit comme un serveur Web qui sert une page Web contenant un programme javascript pour se connecter à ESP32 via Websocket et capturer des données d'image binaires pour les afficher sur HTML5 Canvas.
 
+```
+void serve() {
+  WiFiClient client = server.available();
+  if (client) 
+  {
+    //Serial.println("New Client.");
+    String currentLine = "";
+    while (client.connected()) 
+    {
+      if (client.available()) 
+      {
+        char c = client.read();
+        //Serial.write(c);
+        if (c == '\n') 
+        {
+          if (currentLine.length() == 0) 
+          {
+            client.println("HTTP/1.1 200 OK");
+            client.println("Content-type:text/html");
+            client.println();
+            client.print(canvas_htm);
+            client.println();
+            break;
+          } 
+          else 
+          {
+            currentLine = "";
+          }
+        } 
+        else if (c != '\r') 
+        {
+          currentLine += c;
+        }
+        
+      }
+    }
+    client.stop();
 
-
-
+  }  
+}
+```
 PCB are made to integrate up to 2 Mikrobus modules including SX1280 technology. Mikrobus board is an add-on board socket standard made by [mikroe](https://www.mikroe.com/mikrobus). This makes the ground station adjustable and modular.
 ![MiKroBus module](https://github.com/thingsat/tinygs_2g4station/blob/main/MiKroBus_module%20-%20Pinout_specification.PNG) 
 
