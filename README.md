@@ -18,7 +18,8 @@ Le projet est sert à Comptage de personnes, avec un ESP32 Vroom sur platine Tin
 ## Microcontroller
 ### ESP32
 
-The CPU is fast enough to provide the camera clock (XCLK) — clock signal above 10MHZ. It has enough RAM to capture a full 160x120x2 frame (QQVGA). And it is equipped with Wifi capabilities.
+
+Le processeur est suffisamment rapide pour fournir l'horloge de la caméra (XCLK) - signal d'horloge supérieur à 10 MHZ. Il dispose de suffisamment de RAM pour capturer une image complète de 160x120x2 (QQVGA). Et il est équipé de capacités Wifi.
 
 
 
