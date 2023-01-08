@@ -4,6 +4,17 @@ Le projet est sert à Comptage de personnes, avec un ESP32 Vroom sur platine Tin
 
 ![TinyGS 2G4](./images/gateway_tinygs_2g4-d-all_components.jpg)
 
+## Objectifs
+
+* Use cheap camera module.
+* Ability to connect to WiFi.
+* Ability to view the video stream from a PC and Smart Phone as well.
+* Display software should be platform independent
+* Low power consumption. Battery operable.
+* Portable.
+* Easy to configure
+
+
 ## ESP32 Wroon 32U
 
 The default MCU board is the [ESP32 Wroom 32U](https://www.espressif.com/sites/default/files/documentation/esp32-wroom-32d_esp32-wroom-32u_datasheet_en.pdf).
