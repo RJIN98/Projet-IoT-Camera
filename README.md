@@ -64,7 +64,7 @@ void initWifiMulti()
 
 3. Ouvert le navigateur Google Chrome avec adresse 192.168.4.1. 
 
- QQ-VGA (120x160) est le canevas d'affichage par défaut.
+ ###QQ-VGA (120x160) est le canevas d'affichage par défaut.
 
 
 4. L'ESP32 agit comme un serveur Web qui sert une page Web contenant un programme javascript pour se connecter à ESP32 via Websocket et capturer des données d'image binaires pour les afficher sur HTML5 Canvas.
