@@ -62,6 +62,9 @@ void initWifiMulti()
 2. Connexion le PC/téléphone intelligent au point d'accès Esp32AP
 
 
+3. Ouvert le navigateur Google Chrome avec adresse 192.168.4.1. 
+
+
 PCB are made to integrate up to 2 Mikrobus modules including SX1280 technology. Mikrobus board is an add-on board socket standard made by [mikroe](https://www.mikroe.com/mikrobus). This makes the ground station adjustable and modular.
 ![MiKroBus module](https://github.com/thingsat/tinygs_2g4station/blob/main/MiKroBus_module%20-%20Pinout_specification.PNG) 
 
