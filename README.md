@@ -23,7 +23,7 @@ Le processeur est suffisamment rapide pour fournir l'horloge de la caméra (XCLK
 
 
 
-## Video Streaming Algorithm using WebSocket
+## Algorithme de streaming vidéo utilisant WebSocket
 
 * Établissez une connexion Websocket entre le client du navigateur et ESP32.
 
@@ -35,7 +35,9 @@ Le processeur est suffisamment rapide pour fournir l'horloge de la caméra (XCLK
 
 * Après avoir reçu le drapeau de fin, le navigateur demande ESP32 pour la trame suivante. ESP32 continue comme à l'étape 3.
 
-##  Main Board
+##  Détails d'implémentation
+
+Nous avons connecté le ESP32 à l'alimentation 5V. ESP32 démarre et se configure lui-même en tant que point d'accès et poste de travail. Il se connecte au meilleur réseau Wifi disponible parmi les options proposées.
 
 PCB are made to integrate up to 2 Mikrobus modules including SX1280 technology. Mikrobus board is an add-on board socket standard made by [mikroe](https://www.mikroe.com/mikrobus). This makes the ground station adjustable and modular.
 ![MiKroBus module](https://github.com/thingsat/tinygs_2g4station/blob/main/MiKroBus_module%20-%20Pinout_specification.PNG) 
