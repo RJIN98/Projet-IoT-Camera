@@ -1,12 +1,4 @@
-# Welcome to GitHub Desktop!
-
-This is your README. READMEs are where you can communicate what your project is and how to use it.
-
-Write your name on line 6, save it, and then head back to GitHub Desktop.
-
-Amirul Amir Fauzi et Ruifeng JIN
-
-# TinyGS :: 2.4 GHz LoRa (low cost and low tech) ground station
+# MiniProjet_IoT ESP avec camera
 
 Project to develop a ground station board that will receive messages from satellite on the 2.4GHz band. Satellite tracks are [Thingsat@STORK1](https://tinygs.com/satellite/ThingSat) and other cubeseat followed by the TinyGS community. This station is low cost (off the shelves boards and modules) and low tech (required only a solder iron).
 
