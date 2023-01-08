@@ -23,11 +23,17 @@ Le processeur est suffisamment rapide pour fournir l'horloge de la caméra (XCLK
 
 
 
-## SX1280 modules
+## Video Streaming Algorithm using WebSocket
 
-For the long-range communication, we will use the Semtech SX1280, which is a low power 2.4 GHz LoRa RF Transceiver.
+* Établissez une connexion Websocket entre le client du navigateur et ESP32.
 
-Project contains several PCBs and firmwares. 
+* Le navigateur envoie un message "démarrer" à ESP32. Le message de démarrage contient le type de résolution d'image. 80x60, 160x120 ou 320x240.
+
+* ESP32 commence à capturer des images et les envoie au navigateur à l'aide de webSocket.sendBIN. Le format d'image est RVB565. Par conséquent, la taille de trame totale est de (taille de trame en pixels) X 2 octets. Dans cette solution, la mémoire est suffisamment allouée pour tenir dans une trame de taille 160x120x2 octets (QQVGA).
+
+* En cas de résolution 320x240, l'image est capturée 2 fois. Dans la première capture, la première moitié de la trame est envoyée et dans la seconde capture, la moitié restante est envoyée via le websocket. Un drapeau de début et un drapeau de fin sont utilisés pour informer le navigateur de l'ordre des trames partielles.
+
+* Après avoir reçu le drapeau de fin, le navigateur demande ESP32 pour la trame suivante. ESP32 continue comme à l'étape 3.
 
 ##  Main Board
 
