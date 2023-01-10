@@ -2,7 +2,7 @@
 
 Le projet est sert à Comptage de personnes, avec un ESP32 Vroom sur platine TinyGS 2G4 (Mikrobus, I2C, SPI) + cam OV7670.
 
-![TinyGS 2G4](./Iot Camera Module OV7670 - Twins Chip 1-1000x1000.jpg)
+![TinyGS 2G4](./Iot/Camera Module OV7670 - Twins Chip 1-1000x1000.jpg)
 
 ## Objectifs
 
@@ -39,26 +39,8 @@ Le processeur est suffisamment rapide pour fournir l'horloge de la caméra (XCLK
 
 1. Nous avons connecté le ESP32 à l'alimentation 5V. ESP32 démarre et se configure lui-même en tant que point d'accès et poste de travail. Il se connecte au meilleur réseau Wifi disponible parmi les options proposées.
 
-```
-void initWifiMulti()
-{
-    wifiMulti.addAP(ssid_AP_1, pwd_AP_1);
-    wifiMulti.addAP(ssid_AP_2, pwd_AP_2);
-    wifiMulti.addAP(ssid_AP_3, pwd_AP_3);
 
-    Serial.println("Connecting Wifi...");
 
-    while(wifiMulti.run() != WL_CONNECTED) {
-       delay(5000);        
-       Serial.print(".");
-    }
-    
-    Serial.print("\n");
-    Serial.print("WiFi connected : ");
-    Serial.print("IP address : ");
-    Serial.println(WiFi.localIP());
-}
-```
 2. Connexion le PC/téléphone intelligent au point d'accès Esp32AP
 
 
@@ -69,151 +51,13 @@ void initWifiMulti()
 
 4. L'ESP32 agit comme un serveur Web qui sert une page Web contenant un programme javascript pour se connecter à ESP32 via Websocket et capturer des données d'image binaires pour les afficher sur HTML5 Canvas.
 
-```
-void serve() {
-  WiFiClient client = server.available();
-  if (client) 
-  {
-    //Serial.println("New Client.");
-    String currentLine = "";
-    while (client.connected()) 
-    {
-      if (client.available()) 
-      {
-        char c = client.read();
-        //Serial.write(c);
-        if (c == '\n') 
-        {
-          if (currentLine.length() == 0) 
-          {
-            client.println("HTTP/1.1 200 OK");
-            client.println("Content-type:text/html");
-            client.println();
-            client.print(canvas_htm);
-            client.println();
-            break;
-          } 
-          else 
-          {
-            currentLine = "";
-          }
-        } 
-        else if (c != '\r') 
-        {
-          currentLine += c;
-        }
-        
-      }
-    }
-    client.stop();
-
-  }  
-}
-```
 
 L'adresse IP de la Station Wifi est fournie par l'ESP32 lors de l'ouverture de la prise Web. ESP32 envoie l'adresse IP de la station au client Web.
 
 Ainsi, la caméra peut avoir deux IP. Correction de 192.168.4.1 lorsqu'il crée un point d'accès et une adresse IP de station attribués par le routeur lorsque ESP32 se connecte à un autre réseau WiFi.
-```
-IPAddress localip;
-  
-  switch (type) {
-    case WStype_DISCONNECTED:             // if the websocket is disconnected
-      Serial.printf("[%u] Disconnected!\n", num);
-      break;
-    case WStype_CONNECTED: {              // if a new websocket connection is established
-        IPAddress ip = webSocket.remoteIP(num);
-        Serial.printf("[%u] Connected from %d.%d.%d.%d url: %s\n", num, ip[0], ip[1], ip[2], ip[3], payload);
-//        rainbow = false;                  // Turn rainbow off when a new connection is established
-           gWebSocketConnected = true;
-           webSocket.sendBIN(0, &ip_flag, 1);
-           localip = WiFi.localIP();
-           sprintf(ipaddr, "%d.%d.%d.%d", localip[0], localip[1], localip[2], localip[3]);
-           webSocket.sendTXT(0, (const char *)ipaddr);
-           
-      }
-      break;
-```
+
 Le client Web Socket est un navigateur Web. Par conséquent, notre dispositif d'affichage est multiplateforme. Il peut être visualisé sur un PC et un smartphone prenant en charge le canevas HTML5. Le code suivant montre comment le client Web gère le socket Web.
-```
-    function initWebSocket() {
-    
-        if ("WebSocket" in window) {
-            if (ws != null) {
-                ws.close();
-            } 
-         	
-            ws = new WebSocket('ws://' +  camera_ip + ':81/', ['arduino']);
-	    if (ws == null) {
-                document.getElementById("connecting").innerText = "Failed to connect to camera [ " + camera_ip + " ]";
-                return;		
-	    }
-            ws.binaryType = 'arraybuffer';
 
-
-            // open websocket 
-            ws.onopen = function() {
-                document.getElementById("canvas7670").style.visibility = "visible";
-                document.getElementById("connecting").style.visibility = "hidden";
-		document.getElementById("constatus").innerText = "Connected to " + ws.url;
-		if (gcanvasid != null && gcanvasid != "") {
-		    capture(gcanvasid);
-		}
-            };//ws.onopen
-           
-            // receive message 
-            ws.onmessage = function (evt) { 
-                var arraybuffer = evt.data;
-                if (arraybuffer.byteLength == 1) {
-                    flag  = new Uint8Array(evt.data); // Start Flag
-                    if (flag == 0xAA) {
-                       ln = 0;                   
-                    }
-                    if (flag == 0xFF) {
-                       //alert("Last Block");
-                    }
-
-		    if (flag == 0x11) {
-                       //alert("Camera IP");
-                    }
-
-		} else {
-
-                    if (flag == 0x11) {
-                       //alert("Camera IP " + evt.data);
-		       camera_ip = evt.data;
-		       document.getElementById("wifi-ip").innerText = camera_ip;
-                       flag = 0;			    
-		    } else {
-                       var bytearray = new Uint8Array(evt.data);
-                       display(bytearray, arraybuffer.byteLength, flag);
-		    }
-                }
-
-            }; //ws.onmessage
-            
-            // close websocket
-            ws.onclose = function() { 
-                document.getElementById("canvas7670").style.visibility = "hidden";
-                document.getElementById("connecting").style.visibility = "visible";
-            }; //ws.onclose
-
-            // websocket error handling
-            ws.onerror = function(evt) {
-                document.getElementById("canvas7670").style.visibility = "hidden";
-                document.getElementById("connecting").style.visibility = "visible";
-                document.getElementById("connecting").innerText = "Error " + evt.data;
-		document.getElementById("constatus").innerText = "";
-	    };
-	    
-        } else {
-           // The browser doesn't support WebSocket
-           alert("WebSocket NOT supported by your Browser!");
-        }
-    } 
-
-
-```
 
 
 
