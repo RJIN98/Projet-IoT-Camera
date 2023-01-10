@@ -42,15 +42,15 @@ Le processeur est suffisamment rapide pour fournir l'horloge de la caméra (XCLK
 1. Nous avons connecté le ESP32 à l'alimentation 5V. ESP32 démarre et se configure lui-même en tant que point d'accès et poste de travail. Il se connecte au meilleur réseau Wifi disponible parmi les options proposées.
 
 
-![camera](https://github.com/RJIN98/desktop-tutorial/blob/main/pic/esp32_wifi.jpeg) 
-
 2. Connexion le PC/téléphone intelligent au point d'accès Esp32AP
+
+![camera](https://github.com/RJIN98/desktop-tutorial/blob/main/pic/esp32_wifi.jpeg) 
 
 
 3. Ouvert le navigateur Google Chrome avec adresse 192.168.4.1. 
 
       QQ-VGA (120x160) est le canevas d'affichage par défaut.
-
+![camera](https://github.com/RJIN98/desktop-tutorial/blob/main/pic/QQ_VGA.jpeg) 
 
 4. L'ESP32 agit comme un serveur Web qui sert une page Web contenant un programme javascript pour se connecter à ESP32 via Websocket et capturer des données d'image binaires pour les afficher sur HTML5 Canvas.
 
