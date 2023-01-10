@@ -55,11 +55,12 @@ Le processeur est suffisamment rapide pour fournir l'horloge de la caméra (XCLK
 4. L'ESP32 agit comme un serveur Web qui sert une page Web contenant un programme javascript pour se connecter à ESP32 via Websocket et capturer des données d'image binaires pour les afficher sur HTML5 Canvas.
 
 
-L'adresse IP de la Station Wifi est fournie par l'ESP32 lors de l'ouverture de la prise Web. ESP32 envoie l'adresse IP de la station au client Web.
+      L'adresse IP de la Station Wifi est fournie par l'ESP32 lors de l'ouverture de la prise Web. ESP32 envoie l'adresse IP de la station au client Web.         Nous pouvons donc aussi connecter avec le WiFi IP 172.20.10.12 par l'appareil partage du connection réseux.
+      ![172](https://github.com/RJIN98/desktop-tutorial/blob/main/pic/172.jpeg) 
 
-Ainsi, la caméra peut avoir deux IP. Correction de 192.168.4.1 lorsqu'il crée un point d'accès et une adresse IP de station attribués par le routeur lorsque ESP32 se connecte à un autre réseau WiFi.
+      Ainsi, la caméra peut avoir deux IP. Correction de 192.168.4.1 lorsqu'il crée un point d'accès et une adresse IP de station attribués par le routeur       lorsque ESP32 se connecte à un autre réseau WiFi.
 
-Le client Web Socket est un navigateur Web. Par conséquent, notre dispositif d'affichage est multiplateforme. Il peut être visualisé sur un PC et un smartphone prenant en charge le canevas HTML5. Le code suivant montre comment le client Web gère le socket Web.
+      
 
 ## Schéma électrique
 
