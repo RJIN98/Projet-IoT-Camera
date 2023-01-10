@@ -1,7 +1,10 @@
 # MiniProjet_IoT ESP avec camera
 
 Le projet est sert à Comptage de personnes, avec un ESP32 Vroom sur platine TinyGS 2G4 (Mikrobus, I2C, SPI) + cam OV7670.
-![MiKroBus module]((https://github.com/RJIN98/desktop-tutorial/blob/main/pic/camera.jpg)
+
+![MiKroBus module](https://github.com/RJIN98/desktop-tutorial/blob/main/pic/camera.jpg) 
+
+https://github.com/thingsat/tinygs_2g4station/blob/main/MiKroBus_module%20-%20Pinout_specification.PNG) 
 
 
 ## Objectifs
