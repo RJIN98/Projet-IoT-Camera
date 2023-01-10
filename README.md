@@ -42,6 +42,7 @@ Le processeur est suffisamment rapide pour fournir l'horloge de la caméra (XCLK
 1. Nous avons connecté le ESP32 à l'alimentation 5V. ESP32 démarre et se configure lui-même en tant que point d'accès et poste de travail. Il se connecte au meilleur réseau Wifi disponible parmi les options proposées.
 
 
+![camera](https://github.com/RJIN98/desktop-tutorial/blob/main/pic/WechatIMG79.jpeg) 
 
 2. Connexion le PC/téléphone intelligent au point d'accès Esp32AP
 
