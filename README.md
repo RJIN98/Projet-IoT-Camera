@@ -2,7 +2,7 @@
 
 Le projet est sert à Comptage de personnes, avec un ESP32 Vroom sur platine TinyGS 2G4 (Mikrobus, I2C, SPI) + cam OV7670.
 
-![TinyGS 2G4](./iot pic/WechatIMG77.jpeg)
+![TinyGS 2G4](./pic/camera.jpeg)
 
 
 ## Objectifs
