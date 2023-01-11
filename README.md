@@ -44,7 +44,7 @@ Le processeur est suffisamment rapide pour fournir l'horloge de la caméra (XCLK
 
 
 ![camera](https://github.com/RJIN98/desktop-tutorial/blob/main/pic/esp32_wifi.jpeg) 
-
+![172](https://github.com/RJIN98/desktop-tutorial/blob/main/pic/connect_wifi.jpeg) 
 
 3. Ouvert le navigateur Google Chrome avec adresse 192.168.4.1. 
 
@@ -59,7 +59,7 @@ Le processeur est suffisamment rapide pour fournir l'horloge de la caméra (XCLK
       L'adresse IP de la Station Wifi est fournie par l'ESP32 lors de l'ouverture de la prise Web. ESP32 envoie l'adresse IP de la station au client Web.         Nous pouvons donc aussi connecter avec le WiFi IP 172.20.10.12 par l'appareil partage du connection réseux.
       
       
-      ![172](https://github.com/RJIN98/desktop-tutorial/blob/main/pic/connect_wifi.jpeg) 
+      ![172_camera](https://github.com/RJIN98/desktop-tutorial/blob/main/pic/172_camera.jpeg) 
 
       Ainsi, la caméra peut avoir deux IP. Correction de 192.168.4.1 lorsqu'il crée un point d'accès et une adresse IP de station attribués par le routeur       lorsque ESP32 se connecte à un autre réseau WiFi.
 
