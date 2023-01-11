@@ -42,9 +42,9 @@ Le processeur est suffisamment rapide pour fournir l'horloge de la caméra (XCLK
 
 2. Connexion le PC/téléphone intelligent au point d'accès Esp32AP
 
-
-![camera](https://github.com/RJIN98/desktop-tutorial/blob/main/pic/esp32_wifi.jpeg) 
 ![172](https://github.com/RJIN98/desktop-tutorial/blob/main/pic/connect_wifi.jpeg) 
+![camera](https://github.com/RJIN98/desktop-tutorial/blob/main/pic/esp32_wifi.jpeg) 
+
 
 3. Ouvert le navigateur Google Chrome avec adresse 192.168.4.1. 
 
