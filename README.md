@@ -69,7 +69,7 @@ Le processeur est suffisamment rapide pour fournir l'horloge de la caméra (XCLK
 
 Les connexions des broches des appareils peuvent également être trouvées dans le code et le shéma desous. Nous avons remarqué que les broches 34, 35, 36(VP), 39(VN) sont en lecture seule. Elles ne peuvent pas être utilisées pour I2C, l'horloge (XCLK). Les broches 0, 2 et 5 sont utilisées comme signaux de démarrage. Elles ne doivent pas être utilisées comme entrées pour éviter des problèmes lors de la programmation. La broche 5 est également reliée à la LED sur la carte. Les broches 6 à 11 sont à proscrire car elles sont reliées à la mémoire flash SPI connectée à l'ESP32.
 
-![schema_electrique](https://github.com/RJIN98/desktop-tutorial/blob/main/endpoint/sechma/electrique.png) 
+![schema_electrique](https://github.com/RJIN98/desktop-tutorial/blob/main/endpoint/shema/electrique.png) 
 
 ## Problèmes rencontrés
 
