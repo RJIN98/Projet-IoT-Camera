@@ -76,13 +76,24 @@ Les connexions des broches des appareils peuvent également être trouvées dans
 ## Les fonctionnalités prévues
 Le projet est sert à Comptage de personnes, avec un ESP32 Vroom sur platine TinyGS 2G4 (Mikrobus, I2C, SPI) + cam OV7670.
 ### Celles réalisées 
-Nous avons réussi d'afficher la video ( envoyé par camera )sur une adresse http ( crée par ESP32 ), et de choisir une taille d'image ( QVGA, QQVGA, QQQVGA). 
+
+
+Nous avons réussi d'afficher la video ( envoyé par camera )sur une adresse http ( crée par ESP32 ), et de choisir une taille d'image ( QVGA, QQVGA, QQQVGA).
+
+* Activation de camera OV7670 avec le module ESP32 WROOM DA.
+* Transfert de l’image en streaming au serveur Web.
 
 ### Celles non réalisés
-Faire le comptage de personnes dans l'image. 
+
+* Reconnaissance d’humain par la caméra.
+* Comptage de personnes 
 
 ## Problèmes rencontrés
 
+Problèmes Rencontrés : 
+
+On avait un problème de faire la connexion de caméra avec le module ESP32. C’était un problème de configuration parce qu’on n’a pas trouvé la bonne bibliothèque pour la caméra utilisée.
+On avait une difficulté de communiquer la caméra et le web serveur créé par l’ESP32. Après avoir cherché des solutions, on a utilisé le Websocket pour établir la connexion de camera et ESP32 au serveur Web
 
 
 
