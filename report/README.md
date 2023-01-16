@@ -71,6 +71,16 @@ Les connexions des broches des appareils peuvent également être trouvées dans
 
 ![schema_electrique](https://github.com/RJIN98/desktop-tutorial/blob/main/endpoint/enclosure/electrique.png) 
 
+
+
+##Les fonctionnalités prévues
+
+###Celles réalisées 
+
+
+###Celles non réalisés
+
+
 ## Problèmes rencontrés
 
 
