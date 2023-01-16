@@ -42,8 +42,8 @@ Le processeur est suffisamment rapide pour fournir l'horloge de la caméra (XCLK
 
 2. Connexion le PC/téléphone intelligent au point d'accès Esp32AP
 
-![172](https://github.com/RJIN98/desktop-tutorial/blob/main/pic/connect_wifi.jpeg) 
-![camera](https://github.com/RJIN98/desktop-tutorial/blob/main/pic/esp32_wifi.jpeg) 
+![172](https://github.com/RJIN98/desktop-tutorial/blob/main/endpoint/pic/connect_wifi.jpeg) 
+![camera](https://github.com/RJIN98/desktop-tutorial/blob/main/endpoint/pic/esp32_wifi.jpeg) 
 
 
 3. Ouvert le navigateur Google Chrome avec adresse 192.168.4.1. 
@@ -51,7 +51,7 @@ Le processeur est suffisamment rapide pour fournir l'horloge de la caméra (XCLK
       QQ-VGA (120x160) est le canevas d'affichage par défaut.
       
       
-![camera](https://github.com/RJIN98/desktop-tutorial/blob/main/pic/QQ_VGA.jpeg) 
+![camera](https://github.com/RJIN98/desktop-tutorial/blob/main/endpoint/pic/QQ_VGA.jpeg) 
 
 4. L'ESP32 agit comme un serveur Web qui sert une page Web contenant un programme javascript pour se connecter à ESP32 via Websocket et capturer des données d'image binaires pour les afficher sur HTML5 Canvas.
 
@@ -59,7 +59,7 @@ Le processeur est suffisamment rapide pour fournir l'horloge de la caméra (XCLK
       L'adresse IP de la Station Wifi est fournie par l'ESP32 lors de l'ouverture de la prise Web. ESP32 envoie l'adresse IP de la station au client Web.         Nous pouvons donc aussi connecter avec le WiFi IP 172.20.10.12 par l'appareil partage du connection réseux.
       
       
-      ![172_camera](https://github.com/RJIN98/desktop-tutorial/blob/main/pic/172_camera.jpeg) 
+      ![172_camera](https://github.com/RJIN98/desktop-tutorial/blob/main/endpoint/pic/172_camera.jpeg) 
 
       Ainsi, la caméra peut avoir deux IP. Correction de 192.168.4.1 lorsqu'il crée un point d'accès et une adresse IP de station attribués par le routeur       lorsque ESP32 se connecte à un autre réseau WiFi.
 
@@ -69,7 +69,7 @@ Le processeur est suffisamment rapide pour fournir l'horloge de la caméra (XCLK
 
 Les connexions des broches des appareils peuvent également être trouvées dans le code et le shéma desous. Nous avons remarqué que les broches 34, 35, 36(VP), 39(VN) sont en lecture seule. Elles ne peuvent pas être utilisées pour I2C, l'horloge (XCLK). Les broches 0, 2 et 5 sont utilisées comme signaux de démarrage. Elles ne doivent pas être utilisées comme entrées pour éviter des problèmes lors de la programmation. La broche 5 est également reliée à la LED sur la carte. Les broches 6 à 11 sont à proscrire car elles sont reliées à la mémoire flash SPI connectée à l'ESP32.
 
-![schema_electrique](https://github.com/RJIN98/desktop-tutorial/blob/main/sechma/electrique.png) 
+![schema_electrique](https://github.com/RJIN98/desktop-tutorial/blob/main/endpoint/sechma/electrique.png) 
 
 ## Problèmes rencontrés
 
@@ -78,4 +78,4 @@ Les connexions des broches des appareils peuvent également être trouvées dans
 
 ## Video Demo
 
-![Video](https://github.com/RJIN98/desktop-tutorial/blob/main/video/video.mp4) 
+![Video](https://github.com/RJIN98/desktop-tutorial/blob/main/endpoint/video/video.mp4) 
