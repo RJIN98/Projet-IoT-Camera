@@ -90,7 +90,6 @@ Nous avons réussi d'afficher la video ( envoyé par camera )sur une adresse htt
 
 ## Problèmes rencontrés
 
-Problèmes Rencontrés : 
 
 On avait un problème de faire la connexion de caméra avec le module ESP32. C’était un problème de configuration parce qu’on n’a pas trouvé la bonne bibliothèque pour la caméra utilisée.
 On avait une difficulté de communiquer la caméra et le web serveur créé par l’ESP32. Après avoir cherché des solutions, on a utilisé le Websocket pour établir la connexion de camera et ESP32 au serveur Web
