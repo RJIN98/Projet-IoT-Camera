@@ -2,7 +2,7 @@
 
 Le projet est sert à Comptage de personnes, avec un ESP32 Vroom sur platine TinyGS 2G4 (Mikrobus, I2C, SPI) + cam OV7670.
 
-![camera](https://github.com/RJIN98/desktop-tutorial/blob/main/pic/camera.jpg) 
+![camera](https://github.com/RJIN98/desktop-tutorial/blob/main/endpoint/pic/camera.jpg) 
 
 
 
