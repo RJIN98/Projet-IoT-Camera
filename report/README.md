@@ -74,11 +74,12 @@ Les connexions des broches des appareils peuvent également être trouvées dans
 
 
 ## Les fonctionnalités prévues
+Le projet est sert à Comptage de personnes, avec un ESP32 Vroom sur platine TinyGS 2G4 (Mikrobus, I2C, SPI) + cam OV7670.
 ### Celles réalisées 
-
+Nous avons réussi d'afficher la video ( envoyé par camera )sur une adresse http ( crée par ESP32 ), et de choisir une taille d'image ( QVGA, QQVGA, QQQVGA). 
 
 ### Celles non réalisés
-
+Faire le comptage de personnes dans l'image. 
 
 ## Problèmes rencontrés
 
