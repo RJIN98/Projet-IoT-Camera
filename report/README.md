@@ -73,12 +73,11 @@ Les connexions des broches des appareils peuvent également être trouvées dans
 
 
 
-##Les fonctionnalités prévues
+## Les fonctionnalités prévues
+### Celles réalisées 
 
-###Celles réalisées 
 
-
-###Celles non réalisés
+### Celles non réalisés
 
 
 ## Problèmes rencontrés
